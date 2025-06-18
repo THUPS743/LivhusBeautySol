@@ -1,0 +1,21 @@
+
+@media (max-wdith:1024px){}
+
+@media (max-wdith:786px){
+    .Home .frontpage .btn{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-wdith:610px){
+    .Home .frontpage{
+        max-width: 90%;
+    }
+}
+
+@media (max-wdith:425px){
+    .Home .frontpage{
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,490 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+
+header{
+    position: fixed;
+    height: 86px;
+    width: 100%;
+    padding: 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    background-color: black;
+}
+
+header .logo{
+    transition: 4s;
+}
+
+header .logo:hover{
+    transform: scale(1.1);
+}
+
+header ul{
+    position:relative;
+}
+
+header ul li{
+    list-style: none;
+    float: left;
+    position: relative;
+}
+
+header ul li a{
+    font-size: 1.1em;
+    padding: 20px 25px;
+    text-decoration: none;
+    color: bisque;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+header ul li a:hover{
+    color: brown;
+}
+
+/* making it responsive */
+
+@media (max-width: 1024px){
+    header{
+        padding: 10px;
+    }
+
+    header nav{
+        position: absolute;
+        width: 100%;
+        top: 88px;
+        left: 0;
+        display: none;
+    }
+
+    header.active nav{
+        display: block;
+    }
+
+    header ul li{
+        width: 100%;
+    }
+
+    header ul li a{
+        border: 1px solid grey;
+        position: relative;
+        z-index: 3;
+        font-weight: 800;
+    }
+
+    header ul li a:hover{
+        color: aquamarine;
+    }
+
+    header ul li a:before{
+        content: '';
+        position:absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(87, 87, 87);
+        z-index: -1;
+        opacity: .8;
+    }
+
+    /*menuToggle*/
+
+    .navdiv{
+        position:relative;
+        width: 40px;
+        height: 50px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+    }
+
+    .navdiv::before{
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background: beige;
+        box-shadow: 0 12px beige;
+        transform: translateY(-12px);
+    }
+
+    .navdiv::after{
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background: beige;
+        transform: translateY(12px);
+    }
+
+    /* .active*/
+    header.active .navdiv::before{
+        transform: rotate(45deg);
+        box-shadow: 0 0 beige;
+    }
+
+    header.active .navdiv::after{
+        transform: rotate(315deg);
+    }
+
+    section.active{
+        position: relative;
+    }
+
+    section.active::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(58, 58, 55);
+        z-index: 1;
+        opacity: .3;
+    }
+
+}
+
+.Home{
+    padding: 9rem 0% 20rem;
+    position: relative;
+    /*background-color: rgb(60, 62, 60);*/
+    color: beige;
+    height: 100vh;
+    /*will remove later*/
+    
+}
+
+.Home::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(59, 54, 54);
+    z-index: -1;
+    opacity: .7;
+}
+
+.Home::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgb(59, 54, 54);*/
+     background-image: url("Images/background.jpg");
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    opacity: .7;
+}
+/*.home.frontpage*/
+.Home .frontpage{
+    padding: 0 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 60%;
+}
+
+.Home .frontpage .address{
+    color: black;
+    font-size: 25px;
+    line-height: 1.2em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.Home .frontpage .heading{
+    font-size: 3.24rem;
+    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.Home .frontpage .para{}
+
+
+.Home .frontpage .btn{
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.Home .frontpage .btn a{
+    border-radius: 7px;
+    color: black;
+    background-color: beige;
+    padding: 17px 30px;
+    text-decoration: none;
+    border: 1px solid black;
+    transition: all .4s ease;
+}
+
+.Home .frontpage .btn a:hover{
+    border: 1px solid bisque;
+    background-color: bisque;
+}
+
+.About{
+    padding: 2rem 0% 3rem;
+    background-color: rgb(132, 131, 130);
+}
+
+.About .head1{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: bisque;
+}
+
+.About .paraAbout{
+    padding-top: 2rem;
+    color: beige;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#ch{
+    display: none;
+}
+
+#ch:checked ~ .hiddenabout{
+    display: block;
+}
+
+#ch:checked ~ label{
+    display: none;
+}
+
+.hiddenabout{
+    display: none;
+    color: beige;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+label{
+    display: inline-block;
+    color: black;
+    background-color: beige;
+    padding: 3px 13px;
+    border-radius: 3px;
+    margin-top: 12px;
+}
+
+.About .Mom{
+    float: left;
+    padding-top: 2rem;
+}
+
+.About .video .salon{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: bisque;
+    padding-bottom: 1rem;
+    padding-top: 7rem;
+}
+
+.offers{
+    padding: 2rem 0% 2rem;
+    background-color: beige;
+}
+
+.offers::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.offers .head2{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: black;
+    padding-bottom: 2rem;
+}
+
+.offers .column{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+.offers .box{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+.offers .box a{
+    text-decoration: none;
+}
+
+.offers .box .viewmore{
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+    border-radius: 7px;
+    color: beige;
+    background-color:black;
+    padding: 17px 30px;
+    text-decoration: none;
+    border: 1px solid beige;
+    transition: all .4s ease;
+}
+
+.offers .box .viewmore:hover{
+    border: 1px solid brown;
+    background-color: brown;
+}
+
+.contact{
+     padding: 2rem 0% 0rem;
+    background-color: rgb(132, 131, 130);
+}
+
+.contact .head3{
+     font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: bisque;
+}
+
+.contact .para2{
+    text-align: center;
+    color: black;
+    font-family: italic;
+}
+
+.contact .socials{
+    padding-top: 2rem;
+    list-style: none;
+    float: left;
+    position: relative;
+}
+
+.contact .socials a{
+    font-size: .9em;
+    padding: 5px 25px;
+    text-decoration: none;
+    color: bisque;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.contact .socials a:hover{
+    color: black;
+    transform: scale(1.1);
+}
+
+.submit{
+    margin-top: 0rem;
+    display: flex;
+    border-radius: 5px;
+    color: beige;
+    background-color:rgb(80, 77, 77);
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid beige;
+}
+
+.map{
+    padding-top: 2rem;
+}
+
+.footerContainer{
+    background-color: grey;
+    width: 100%;
+    padding: 20px 30px 20px;
+}
+
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+
+.socialIcons a{
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.socialIcons a:hover{
+    background-color: rgb(65, 86, 88);
+}
+
+.socialIcons a i{
+   color: black;
+   opacity: 0.9;
+}
+
+.footernav{
+    margin: 30px 0;
+}
+
+.footernav ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.footernav ul li a{
+    color: beige;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.footerbottom{
+    font-size: small;
+    text-align: center;
+}
+
+.hairpage{
+    padding: 2rem 0% 2rem;
+    background-color: beige;
+}
+
+.hairpage img{
+   float: left;
+    width: 33.33%;
+    padding: 5px; 
+}
+
+.hairpage a{
+    text-decoration: none;
+    padding-top: 15rem;
+}
+
+.hairpage a button{
+    display: flex;
+    gap: 2rem;
+    border-radius: 7px;
+    color: beige;
+    background-color:black;
+    padding: 17px 30px;
+    border: 1px solid beige;
+    transition: all .4s ease;
+}
+
+.hairpage a button:hover{
+    border: 1px solid brown;
+    background-color: brown;
+}
